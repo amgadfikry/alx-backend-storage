@@ -8,7 +8,7 @@ CREATE PROCEDURE ComputeAverageWeightedScoreForUsers()
     DECLARE weighted FLOAT;
     DECLARE total FLOAT;
     DECLARE cur_user INT;
-    DECLARE cur1 CURSOR FOR SELECT id FROM holberton.users;
+    DECLARE cur1 CURSOR FOR SELECT id FROM users;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     OPEN cur1;
     user_loop: LOOP
