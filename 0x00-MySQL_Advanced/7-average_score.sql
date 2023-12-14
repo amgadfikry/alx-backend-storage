@@ -3,7 +3,7 @@
 DELIMITER $$
 CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
   BEGIN
-    DECLARE average DECIMAl;
+    DECLARE average DOUBLE;
     select sum(score) / count(user_id) INTO average from corrections where corrections.user_id = user_id;
     UPDATE users SET average_score = average WHERE id = user_id;
   END;
