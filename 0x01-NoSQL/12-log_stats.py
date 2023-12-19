@@ -4,6 +4,7 @@ from pymongo import MongoClient
 
 
 def main():
+    """ main function run if excute"""
     client = MongoClient('mongodb://127.0.0.1:27017')
     collection = client.logs.nginx
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
