@@ -88,3 +88,18 @@ Write a Python script that provides some stats about Nginx logs stored in MongoD
 -- one line with the number of documents with:
 -- method=GET
 -- path=/status
+
+#### 100-find
+Write a script that lists all documents with name starting by Holberton in the collection school:
+- The database name will be passed as option of mongo command
+
+#### 101-students.py
+Write a Python function that returns all students sorted by average score:
+- Prototype: def top_students(mongo_collection):
+- mongo_collection will be the pymongo collection object
+- The top must be ordered
+- The average score must be part of each item returns with key = averageScore
+
+#### 102-log_stats.py
+Improve 12-log_stats.py by adding the top 10 of the most present IPs in the collection nginx of the database logs:
+- The IPs top must be sorted (like the example below)
