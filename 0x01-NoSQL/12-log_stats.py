@@ -16,7 +16,7 @@ def main():
     print('{} logs'.format(total))
     print('Methods:')
     for x in range(len(methods)):
-        print('    method {}: {}'.format(methods[x], methods_total[x]))
+        print('\tmethod {}: {}'.format(methods[x], methods_total[x]))
     print('{} status check'.format(status))
 
 
