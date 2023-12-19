@@ -13,11 +13,11 @@ def main():
     methods_total = [
             collection.count_documents({'method': m}) for m in methods]
     status = collection.count_documents({'method': 'GET', 'path': '/status'})
-    print(f'{total} logs')
+    print('{} logs'.format(total))
     print('Methods:')
     for x in range(len(methods)):
-        print(f'    method {methods[x]}: {methods_total[x]}')
-    print(f'{status} status check')
+        print('    method {}: {}'.format(methods[x], methods_total[x]))
+    print('{} status check'.format(status))
 
 
 if __name__ == "__main__":
