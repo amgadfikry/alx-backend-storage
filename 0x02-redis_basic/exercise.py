@@ -2,7 +2,7 @@
 """ cash class to handle simple cache """
 import redis
 import uuid
-from typing import Union
+from typing import Union, Callable
 
 
 class Cache:
@@ -23,3 +23,22 @@ class Cache:
         data_key = str(uuid.uuid4())
         self._redis.set(data_key, data)
         return data_key
+
+    def get(self, key: str,
+            fn: Callable = None) -> Union[str, float, bytes, int]:
+        """ method take callable function and convert data
+            using this function
+        """
+        value = self._redis.get(key)
+        if fn is not None:
+            return fn(value)
+        else:
+            return value
+
+    def get_str(self, key: str) -> str:
+        """ method convert value to string"""
+        return self.get(key, lambda x: x.decode('utf-8'))
+
+    def get_int(self, key: str) -> int:
+        """ method convert value to int"""
+        return self.get(key, lambda x: int(x))
